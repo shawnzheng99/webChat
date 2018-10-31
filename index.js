@@ -26,9 +26,11 @@ app.get('/', (req, res) => {
 
 // get authentictation for the channel;
 app.post('/pusher/auth', (req, res) => {
+    //get a user name
         const socketId = req.body.socket_id;
         const channel = req.body.channel_name;
         var presenceData = {
+            // put user name here.
             user_id: Math.random().toString(36).slice(2) + Date.now()
         }
         const auth = pusher.authenticate(socketId, channel, presenceData);
